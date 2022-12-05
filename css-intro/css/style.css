@@ -1,0 +1,15 @@
+#titolo-principale {
+	color: blue;
+}
+
+#titolo-principale {
+	color: rgb(148, 85, 85);
+}
+
+.titolo-principale {
+	color: rgba(27, 27, 202, 0.5);
+}
+
+h1 {
+	color: #0dbb8f;
+}

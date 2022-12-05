@@ -1,0 +1,18 @@
+/* html {
+	color: red;
+} */
+
+.cv-header {
+	/* background-color: #ededed; */
+	background-image: url('../img/profilo.png');
+	text-align: center;
+	border-bottom: 2px solid #ca7f00;
+}
+
+.section-title {
+	color: #ca7f00;
+}
+
+.subtitle {
+	font-style: italic;
+}
