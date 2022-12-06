@@ -1,0 +1,31 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-color: brown;
+}
+
+.main-header {
+	padding: 20px 0;
+	color: white;
+	font-size: 24px;
+}
+
+.logo {
+	height: 54px;
+	vertical-align: middle;
+	margin-right: 15px;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 900px;
+}
+
+.main-header .container {
+	border-bottom: 1px solid white;
+	padding-bottom: 30px;
+}

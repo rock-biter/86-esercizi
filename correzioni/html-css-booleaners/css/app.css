@@ -1,0 +1,90 @@
+a {
+	color: currentColor;
+	text-decoration: none;
+}
+
+address {
+	font-style: normal;
+}
+
+h3 {
+	margin: 0;
+}
+
+.main-header {
+	background-image: url('../img/pattern.png');
+	padding-top: 100px;
+	background-size: 260px;
+	background-color: dodgerblue;
+}
+
+.logo {
+	width: 180px;
+}
+
+.author-info {
+	color: rgb(150, 150, 150);
+	font-size: 20px;
+}
+
+.author-info time {
+	font-size: 14px;
+}
+
+.author-info {
+	color: dodgerblue;
+}
+
+.link {
+	color: salmon;
+}
+
+.h1 {
+	font-size: 48px;
+}
+
+p strong {
+	font-weight: 400;
+	background-color: yellow;
+}
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.table-heading {
+	background-color: dodgerblue;
+	color: white;
+	text-align: left;
+}
+
+.w-25 {
+	width: 25%;
+}
+
+.w-50 {
+	width: 50%;
+}
+
+.bg-acqua {
+	background-color: aqua;
+}
+
+.related-post {
+	color: white;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.rect {
+	width: 200px;
+	height: 150px;
+}
+
+/* #foto-1 {
+	background-image: url('../img/graph.jpg');
+}
+
+#foto-2 {
+	background-image: url('../img/monitor.jpg');
+} */
