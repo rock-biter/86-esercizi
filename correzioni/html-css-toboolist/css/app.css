@@ -1,0 +1,165 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+ul,
+ol,
+menu {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: currentColor;
+}
+
+html {
+	font-family: 'Open Sans', sans-serif;
+}
+
+body {
+	background-color: #eeeeee;
+}
+
+main {
+	padding: 50px 0;
+}
+
+.main-header {
+	background-color: white;
+	padding: 10px 40px;
+	font-size: 36px;
+	font-weight: 700;
+}
+
+.main-header .logo {
+	vertical-align: middle;
+}
+
+.container {
+	max-width: 750px;
+	margin: 0 auto;
+}
+
+/************ 
+card style
+*************/
+
+.card {
+	background-color: white;
+	border-radius: 7px;
+}
+
+.card__header {
+	border-bottom: 2px solid #eee;
+	padding-top: 25px;
+	padding-bottom: 15px;
+}
+
+.card__body {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.card__header,
+.card__body {
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+/* stili lista tasks */
+
+.main__list-item {
+	margin-bottom: 20px;
+}
+
+.task-category {
+	font-size: 22px;
+}
+
+.sublist__item {
+	margin-bottom: 10px;
+}
+
+.icon {
+	border: 1px solid currentColor;
+	border-radius: 50%;
+	margin-right: 10px;
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	line-height: 18px;
+	text-align: center;
+}
+
+.icon.icon-check {
+	color: green;
+}
+
+.icon.icon-cross {
+	color: red;
+}
+
+.tag {
+	font-size: 12px;
+	color: white;
+	padding: 0 8px;
+	border-radius: 8px;
+	line-height: 26px;
+	margin-left: 10px;
+	display: inline-block;
+	background-color: #cccccc;
+}
+
+.bg-blue {
+	background-color: cornflowerblue;
+}
+
+.bg-green {
+	background-color: darkseagreen;
+}
+
+.bg-salmon {
+	background-color: salmon;
+}
+
+.sublist__item > span {
+	vertical-align: middle;
+}
+
+/* ul li {
+	border-left: 3px solid red;
+} */
+
+/* seleziona tutti i list item (li) figli diretti di un ul con la classe .main-list */
+/* ul.main-list > li {
+	border-left: 3px solid red;
+} */
+
+/* seleziona tutti gli li discendenti di un qualsiasi elemento con la classe .small */
+.small li {
+}
+
+/* seleziona tutti gli li che sno figli diretti di un elemento con la classe .small */
+.small > li {
+}
+
+/* seleziona gli elementi che hanno contemporaneamente la classe .small e la classe .tall */
+.small.tall {
+}
+
+/* seleziona tutti gli elementi che hanno la classe .small,
+tutti gli elementi che hanno la classe .tall,
+e di conseguenza tutti quelli le hanno entrambe */
+.small,
+.tall {
+}
+
+/* 
+seleziona tutti i tag p e tutti i tag h3 */
+p,
+h3 {
+	/* font-size: 16px; */
+}
