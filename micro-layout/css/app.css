@@ -45,31 +45,27 @@ img {
 	margin-bottom: 12px;
 }
 
-.float-left {
+.col {
+	width: 30%;
 	float: left;
+	margin-right: 5%;
 }
 
-.float-right {
-	float: right;
+.col:last-child {
+	margin-right: 0;
 }
 
-/* .container img {
-	width: 200px;
-} */
-
-.thumb {
-	width: 200px;
+.card {
+	text-align: center;
 }
 
-.thumb.float-left,
-.thumb.float-right {
+.card img {
+	height: 110px;
+	margin-bottom: 16px;
+}
+
+.card__title {
+	color: salmon;
 	margin-bottom: 8px;
-}
-
-.thumb.float-left {
-	margin-right: 20px;
-}
-
-.thumb.float-right {
-	margin-left: 20px;
+	font-size: 18px;
 }
