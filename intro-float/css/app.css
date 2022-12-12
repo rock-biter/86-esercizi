@@ -1,0 +1,57 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.clearfix::after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+main {
+	padding: 48px 0;
+}
+
+.container {
+	max-width: 900px;
+	margin: 0 auto;
+	/* border: 4px solid black; */
+	padding: 35px 0;
+}
+
+.pink,
+.blue {
+	padding: 20px;
+	min-height: 200px;
+	color: white;
+	font-size: 28px;
+}
+
+.pink {
+	background-color: pink;
+	float: left;
+}
+
+.blue {
+	background-color: cornflowerblue;
+	float: right;
+}
+
+.line {
+	width: 70px;
+	height: 1px;
+	background-color: black;
+	margin: 10px 0;
+}
+
+h1::before,
+h1::after {
+	content: '';
+	display: block;
+	height: 1px;
+	width: 70px;
+	background-color: black;
+	margin: 10px 0;
+}
