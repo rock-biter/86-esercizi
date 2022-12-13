@@ -1,0 +1,26 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	max-width: 900px;
+	margin: 0 auto;
+	border: 2px solid black;
+	padding: 30px;
+}
+
+.row {
+	background-color: tomato;
+	padding: 30px;
+}
+
+.col {
+	background-color: cornflowerblue;
+	padding: 30px;
+}
+
+.flex {
+	display: flex;
+}
