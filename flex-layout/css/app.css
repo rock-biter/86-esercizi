@@ -1,0 +1,101 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+img {
+	max-width: 100%;
+}
+
+.section {
+	padding: 48px 0;
+}
+
+.container {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+h1 {
+	line-height: 150px;
+}
+
+.debug .container {
+	padding: 20px;
+	border: 4px dashed tomato;
+}
+
+.debug header {
+	min-height: 80px;
+	background-color: aquamarine;
+	padding: 20px;
+}
+
+.debug .page-content {
+	/* min-height: 700px; */
+	background-color: azure;
+	padding: 20px;
+}
+
+.debug footer {
+	min-height: 400px;
+	background-color: #333;
+	padding: 20px;
+}
+
+.debug aside {
+	background-color: burlywood;
+	min-height: 100px;
+	padding: 30px;
+}
+
+.debug main {
+	min-height: 150px;
+	background-color: cadetblue;
+	padding: 30px;
+}
+
+.debug .row {
+	border: 4px dotted cornflowerblue;
+	padding: 30px;
+}
+
+.debug [class^='col'] {
+	border: 3px solid black;
+	padding: 5px 15px;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.aside {
+	flex-basis: 320px;
+}
+
+.main-content {
+	flex-grow: 1;
+}
+
+.row-cols-4 > .col {
+	flex-basis: calc(100% / 4);
+}
+
+.row-cols-2 > .col {
+	flex-basis: calc(100% / 2);
+}
+
+.row-cols-4 > .col-50 {
+	flex-basis: 50%;
+}
+
+.logo {
+	height: 80px;
+}
+
+header .row {
+	justify-content: space-between;
+	align-items: center;
+}
