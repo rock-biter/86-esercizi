@@ -1,0 +1,128 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul,
+ol,
+menu {
+	list-style: none;
+}
+
+.container {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.container-small {
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+.row {
+	display: flex;
+}
+
+.row-reverse {
+	flex-direction: row-reverse;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+.items-center {
+	align-items: center;
+}
+
+.main-header .row {
+	align-items: center;
+}
+
+.logo {
+	min-width: 150px;
+}
+
+.page-footer {
+	background-color: #23272a;
+	color: white;
+}
+
+.section {
+	padding: 50px 0;
+}
+
+.col-16 {
+	flex-basis: calc(100% / 6);
+}
+
+.col-33 {
+	flex-basis: calc(100% / 3);
+}
+
+.col-40 {
+	flex-basis: 40%;
+}
+
+.col-60 {
+	flex-basis: 60%;
+}
+
+.col-100 {
+	flex-basis: 100%;
+}
+
+.bg-gray {
+	background-color: #d3d3d3;
+}
+
+/**************** 
+DEBUG RULES
+remove classe debug from body to disable
+****************/
+
+.debug .main-header {
+	background-color: #add8e6;
+	padding: 20px 0;
+}
+
+.debug .main-content {
+	/* padding: 30px 0; */
+}
+
+.debug .page-footer {
+	padding: 20px 0;
+}
+
+.debug .container,
+.debug .container-small {
+	padding: 20px;
+	border: 4px dashed tomato;
+}
+
+.debug .row {
+	border: 4px dotted cornflowerblue;
+	padding: 30px;
+}
+
+.debug [class^='col'] {
+	border: 3px solid black;
+	padding: 5px 15px;
+}
+
+.debug main [class^='col'] {
+	min-height: 300px;
+}
+
+.debug .hero {
+	background-color: #00008b;
+}
+
+.debug .hero > * {
+	min-height: 500px;
+}
+
+.debug .page-footer [class^='col'] {
+	border-color: white;
+}
