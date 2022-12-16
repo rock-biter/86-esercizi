@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-family: 'Open Sans', sans-serif;
+}
+
+ul,
+ol,
+menu {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: currentColor;
+}
+
+select {
+	border: none;
+	background-color: transparent;
+}
+
+.container {
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
+.container-small {
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+.row {
+	display: flex;
+}
+
+.row-reverse {
+	flex-direction: row-reverse;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+.items-center {
+	align-items: center;
+}
+
+.page-footer {
+	background-color: #23272a;
+	color: white;
+}
+
+.section {
+	padding: 50px 0;
+}
+
+.col-16 {
+	flex-basis: calc(100% / 6);
+}
+
+.col-33 {
+	flex-basis: calc(100% / 3);
+}
+
+.col-40 {
+	flex-basis: 40%;
+}
+
+.col-60 {
+	flex-basis: 60%;
+}
+
+.col-100 {
+	flex-basis: 100%;
+}
+
+.bg-gray {
+	background-color: #d3d3d3;
+}
+
+.menu__item a {
+	display: block;
+}
+
+/**************** 
+Button RULES
+****************/
+
+.button {
+	line-height: 45px;
+	padding: 0 15px;
+	border-radius: 999px;
+	background-color: white;
+	color: black;
+	display: flex;
+	gap: 8px;
+	font-size: 16px;
+	align-items: center;
+	width: max-content;
+}
+
+.button.button-sm {
+	font-size: 14px;
+	line-height: 32px;
+}
+
+.button.button-black {
+	background-color: #23272a;
+	color: white;
+}
+
+.button.button-violet {
+	background-color: #7289da;
+	color: white;
+}
+
+/**************** 
+Header RULES
+****************/
+
+.main-header {
+	background-color: #2d63eb;
+	padding: 18px 0;
+}
+
+.main-header .row {
+	align-items: center;
+}
+
+.main-header .menu {
+	display: flex;
+	color: white;
+}
+
+.main-header .menu__item a {
+	line-height: 34px;
+	padding: 0 20px;
+}
+
+.logo {
+	/* min-width: 150px; */
+}
+
+/**************** 
+HERO RULES
+****************/
+
+.hero {
+	background-image: url('../img/jumbo.png');
+	background-size: cover;
+	background-position: center bottom;
+	padding: 250px 0 180px 0;
+	color: white;
+	text-align: center;
+}
+
+.hero__title {
+	font-size: 48px;
+	font-weight: 700;
+	margin-bottom: 32px;
+}
+
+.hero__subtitle {
+	font-size: 20px;
+	margin-bottom: 12px;
+}
+
+.hero__actions {
+	display: flex;
+	gap: 30px;
+	align-items: center;
+	justify-content: center;
+}
+
+/**************** 
+SECTION IMG TEXT RULES
+****************/
+
+.section-img-text {
+	padding: 90px 0;
+}
+
+.section-img-text .card:not(.row-reverse .card) {
+	padding-top: 1.5rem;
+	padding-left: 3.125rem;
+}
+
+.section-img-text .row-reverse .card {
+	padding-top: 1.5rem;
+	padding-right: 3.125rem;
+	/* padding-left: 0; */
+}
+
+.section-img-text .card__title {
+	font-size: 48px;
+	margin-bottom: 32px;
+}
+
+.section-img-text .card__description {
+	font-size: 18px;
+	line-height: 1.5em;
+}
+
+/**************** 
+Header RULES
+****************/
+
+.colophon {
+	padding-top: 0;
+}
+
+.colophon .container {
+	border-top: 1px solid #7289da;
+	padding-top: 24px;
+}
+
+/**************** 
+MENU WIDGET RULES
+****************/
+
+.widget__title {
+	color: #7289da;
+	font-size: 14px;
+}
+
+.widget__title,
+.widget .menu__item a {
+	line-height: 36px;
+}
+
+/**************** 
+WIDGET STD RULES
+****************/
+
+.widget-std .widget__title {
+	font-size: 2rem;
+	margin-bottom: 0.75rem;
+}
+
+.widget-std .lang-select {
+	margin-bottom: 0.75rem;
+}
+
+.widget-std .lang-select select {
+	color: currentColor;
+	padding: 0 5px 0 35px;
+	background-image: url('../img/ita.png');
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+}
+
+.social-links {
+	display: flex;
+	gap: 16px;
+}
+
+.social__link-item {
+	line-height: 32px;
+	width: 32px;
+	text-align: center;
+	background-color: white;
+	color: black;
+	border-radius: 5px;
+}
+
+/**************** 
+DEBUG RULES
+****************/
+
+.debug .main-header {
+	background-color: #add8e6;
+	padding: 20px 0;
+}
+
+.debug .main-content {
+	/* padding: 30px 0; */
+}
+
+.debug .page-footer {
+	padding: 20px 0;
+}
+
+.debug .container,
+.debug .container-small {
+	padding: 20px;
+	border: 4px dashed tomato;
+}
+
+.debug .row {
+	border: 4px dotted cornflowerblue;
+	padding: 30px;
+}
+
+.debug [class^='col'] {
+	border: 3px solid black;
+	padding: 5px 15px;
+}
+
+.debug main [class^='col'] {
+	min-height: 300px;
+}
+
+.debug .hero {
+	background-color: #00008b;
+}
+
+.debug .hero > * {
+	min-height: 500px;
+}
+
+.debug .page-footer [class^='col'] {
+	border-color: white;
+}
