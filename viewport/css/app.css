@@ -29,7 +29,7 @@ a {
 	height: 100vh;
 	background-size: cover;
 	background-position: center;
-	color: white;
+	color: rgb(185, 71, 71);
 	position: relative;
 	font-size: calc(32px + 2vw);
 }
