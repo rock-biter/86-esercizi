@@ -1,0 +1,80 @@
+body {
+	/* background-color: #a3a3a3; */
+}
+
+/* MOBILE FIRST */
+
+h1 {
+	font-size: 28px;
+}
+
+@media screen and (min-width: 480px) {
+	body {
+		/* background-color: salmon; */
+	}
+
+	h1 {
+		font-size: 36px;
+	}
+}
+
+/* @media screen and (min-width: 480px) {
+	h1 {
+		font-size: 36px;
+	}
+} */
+
+@media screen and (min-width: 768px) {
+	h1 {
+		font-size: 48px;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	h1 {
+		font-size: 64px;
+	}
+}
+
+.box {
+	aspect-ratio: 1/1;
+	width: 200px;
+	padding: 20px;
+	color: white;
+	font-size: 32px;
+	background-color: blue;
+}
+
+/* DESKTOP first */
+
+.container {
+	margin: 0 auto;
+	max-width: 1024px;
+	border: 3px solid black;
+}
+
+@media screen and (max-width: 1199px) {
+	body {
+		background-color: salmon;
+	}
+
+	.container {
+		max-width: 780px;
+	}
+}
+
+@media screen and (max-width: 890px) {
+	body {
+		background-color: greenyellow;
+	}
+
+	.container {
+		max-width: 640px;
+	}
+}
+
+@media screen and (max-width: 786px) {
+	.container {
+		max-width: 450px;
+	}
+}
