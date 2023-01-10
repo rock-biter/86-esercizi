@@ -1,0 +1,35 @@
+/* approccio desktop first: dimensioni decrescenti e max-width */
+
+.container {
+	max-width: 1140px;
+	width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+	/* .steps {
+		 margin-bottom: 0;
+	}*/
+}
+
+@media screen and (max-width: 480px) {
+	.row {
+		flex-wrap: wrap;
+		row-gap: 46px;
+	}
+
+	.steps .col,
+	.lessons .col,
+	.why-us .col {
+		width: 100%;
+	}
+
+	.steps {
+		margin-bottom: 0;
+	}
+
+	.why-us {
+		background-color: black;
+		padding: 3rem 0;
+		margin-bottom: 0;
+	}
+}
