@@ -1,0 +1,214 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-family: 'Noto Sans JP', sans-serif;
+}
+
+img {
+	width: 100%;
+}
+
+:root {
+	--blue: #0084fd;
+	--lightblue: #b5ddff;
+	--purple: #9792e4;
+	--dark: #333333;
+	--yellow: #fdc15f;
+}
+
+ul,
+ol,
+menu,
+li {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+	color: currentColor;
+}
+
+/* CONTAINER */
+
+.container {
+	max-width: 1204px; /*prima soluzione aggiungiamo il padding alla max width */
+	/* max-width: 1140px;  */ /* seconda soluzione */
+	margin: 0 auto;
+	padding: 0 32px; /* prima soluzione con padding sempre */
+}
+
+/* seconda soluzione con padding solo sotto i 1204px */
+/* @media screen and (max-width: 1203px) {
+	.container {
+		max-width: 1204px;
+		padding-left: 32px;
+		padding-right: 32px;
+	}
+} */
+
+/* ROW */
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.space-between {
+	justify-content: space-between;
+}
+
+/* COLUMN */
+
+.col-3 {
+	flex-basis: calc(100% / 3);
+}
+
+.col-5 {
+	flex-basis: calc(100% / 2);
+}
+
+.col-6 {
+	flex-basis: calc(100% * 2 / 3);
+}
+
+/* BUTTONS */
+
+.button {
+}
+
+.button--white {
+}
+
+/* HEADER */
+
+.main-header {
+	background-color: var(--blue);
+	padding: 19px 0;
+	color: white;
+}
+
+.main-header nav.row {
+	align-items: center;
+}
+
+.nav-item a {
+	line-height: 38px;
+	font-size: 16px;
+	padding: 0 16px;
+}
+
+.hamburger {
+	display: none;
+}
+
+/* MEDIAUERY HEADER */
+
+@media only screen and (max-width: 991px) {
+	.hamburger {
+		display: block;
+	}
+
+	.header-nav {
+		display: none;
+	}
+}
+
+/* HERO */
+
+.hero {
+	padding: 50px 0 100px;
+}
+
+.row.gutter {
+	row-gap: 24px;
+	margin: 0 -12px;
+}
+
+.row.gutter > [class^='col'] {
+	padding: 0 12px;
+}
+
+.card.card--hero {
+	background-color: var(--lightblue);
+	padding: 32px 24px;
+	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	text-align: center;
+	height: 100%;
+	/* border: 2px solid #333333; */
+	/* min-height: 200px; */
+}
+
+.card.card--hero > .row {
+	height: 100%;
+}
+
+.card.card--hero.card--landscape {
+	padding-bottom: 0;
+	text-align: left;
+}
+
+.card.card--hero.card--landscape .card__details {
+	gap: 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+.card.card--hero .card__icon,
+.card.card--hero .card__title {
+	color: var(--blue);
+}
+
+.card.card--hero .card__title {
+	font-size: 1.5rem;
+}
+
+.card.card--hero .card__icon {
+	font-size: 4rem;
+}
+
+.card.card--hero .card__description {
+	line-height: 1.7em;
+}
+
+.card.card--hero.card--landscape .card__thumb img {
+	display: block;
+	max-width: 240px;
+	margin: 0 auto;
+}
+
+.card.card--hero.card--landscape .card__thumb {
+	align-self: flex-end;
+}
+
+/* MEDIAUERY HERO */
+
+@media screen and (max-width: 991px) {
+	.card--landscape [class^='col-'] {
+		flex-basis: 100%;
+	}
+
+	.card.card--hero.card--landscape .card__thumb img {
+		margin: 0;
+	}
+}
+
+@media only screen and (max-width: 575px) {
+	.hero [class^='col-'] {
+		flex-basis: 100%;
+	}
+
+	.hero {
+		padding-bottom: 80px;
+	}
+
+	.card.card--hero.card--landscape .card__thumb img {
+		margin: 0 auto;
+	}
+}
