@@ -1,8 +1,11 @@
 :root {
 	--dark-blue: #141922;
 	--dark-gray: #282828;
+	--sidebar-color: #000000;
 	--green: #adff2f;
 	--gray: #7d7f84;
+	--sidabar-width: 230px;
+	--bottombar-height: 90px;
 }
 
 * {
