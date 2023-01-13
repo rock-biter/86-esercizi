@@ -52,9 +52,9 @@ html {
 
 .sidebar,
 .main-content,
-body > .toolbar {
+.app > .toolbar {
 	/* border: 1px solid red; */
-	padding: 20px;
+	/* padding: 20px; */
 }
 
 @media (max-width: 575px) {
@@ -62,4 +62,31 @@ body > .toolbar {
 		flex-basis: 50px;
 		/* --sidabar-width: 50px; */
 	}
+}
+
+/* BODY TOOLBAR */
+
+.toolbar {
+	display: flex;
+}
+
+.app > .toolbar {
+	justify-content: space-between;
+	align-items: center;
+}
+
+.album-preview,
+.audio-controls {
+	flex-basis: var(--sidabar-width);
+}
+
+.player-wrapper {
+	flex-basis: 35%;
+}
+
+.album-preview,
+.player-wrapper,
+.audio-controls {
+	border: 2px solid orange;
+	padding: 40px;
 }
