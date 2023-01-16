@@ -67,13 +67,6 @@ img {
 	/* padding: 20px; */
 }
 
-@media (max-width: 575px) {
-	.sidebar {
-		flex-basis: 50px;
-		/* --sidabar-width: 50px; */
-	}
-}
-
 /* BODY TOOLBAR */
 
 .toolbar {
@@ -200,4 +193,31 @@ img {
 .album-actions {
 	flex-wrap: wrap;
 	gap: 4px 10px;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+	display: flex;
+	flex-direction: column;
+}
+
+.sidebar__widget {
+	padding: 20px;
+	border: 2px solid orange;
+}
+
+.sidebar__widget.app-install {
+	margin-top: auto;
+}
+
+@media (max-width: 575px) {
+	.sidebar {
+		flex-basis: 50px;
+		/* --sidabar-width: 50px; */
+	}
+
+	.sidebar__widget.playlist {
+		display: none;
+	}
 }
