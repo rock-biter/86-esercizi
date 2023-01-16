@@ -18,6 +18,16 @@ html {
 	box-sizing: border-box;
 }
 
+ul,
+ol,
+menu {
+	list-style: none;
+}
+
+img {
+	max-width: 100%;
+}
+
 /* debug */
 
 .app {
@@ -68,6 +78,8 @@ html {
 
 .toolbar {
 	display: flex;
+	padding: 12px 0;
+	gap: 3px;
 }
 
 .app > .toolbar {
@@ -84,9 +96,108 @@ html {
 	flex-basis: 35%;
 }
 
+.album-preview
+/* .player-wrapper, */
+/* .audio-controls  */ {
+	/* border: 2px solid orange; */
+	/* padding: 40px; */
+}
+
+/* TOOLBAR */
+.player-controls,
+.player-progress,
+.audio-controls,
+.volume-control,
 .album-preview,
-.player-wrapper,
+.album,
+.album-actions {
+	display: flex;
+	align-items: center;
+}
+
+.player-controls {
+	justify-content: center;
+}
+
+.player-controls .control {
+	font-size: 26px;
+	padding: 4px 8px;
+}
+
+.player-controls .control.play {
+	font-size: 40px;
+	padding: 4px 12px;
+}
+
+.player-progress {
+	gap: 24px;
+}
+
+.progress {
+	background-color: var(--gray);
+	flex-grow: 1;
+	/* width: 20px; */
+}
+
+.progress-indicator {
+	background-color: white;
+	height: 4px;
+	width: 23%;
+}
+
+.progress,
+.progress-indicator {
+	border-radius: 999px;
+}
+
+.volume-control {
+	flex-grow: 1;
+}
+
 .audio-controls {
-	border: 2px solid orange;
-	padding: 40px;
+	padding-right: 11px;
+}
+
+.audio-controls,
+.volume-control {
+	gap: 16px;
+}
+
+/* Album preview */
+
+/* .album,
+.album-action {
+	border: 2px solid greenyellow;
+	padding: 5px;
+} */
+
+.album-preview {
+	justify-content: space-between;
+	gap: 4px;
+	padding-left: 11px;
+}
+
+.album {
+	gap: 12px;
+}
+
+.album__thumb {
+	width: 42px;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+	object-position: center;
+}
+
+.album__info {
+	font-size: 14px;
+}
+
+.album__thumb img {
+	display: block;
+	width: 100%;
+}
+
+.album-actions {
+	flex-wrap: wrap;
+	gap: 4px 10px;
 }
