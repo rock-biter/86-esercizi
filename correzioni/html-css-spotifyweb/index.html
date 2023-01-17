@@ -17,14 +17,73 @@
   <div class="content">
     <header class="sidebar">
 
-      <div class="sidebar__widget logo-wrapper">
-        logo
+      <div class="sidebar__widget logo-wrapper sidebar-h-padding">
+        <img class="logo" src="./img/logo.svg" alt="">
+        <img class="logo-sm" src="./img/logo-small.svg" alt="">
       </div>
-      <div class="sidebar__widget main-menu">
-        menu
-      </div>
+      <ul class="sidebar__widget main-menu">
+        <li class="main-menu__item menu-item active">
+          <a href="#" class="sidebar-h-padding">
+            <span class="menu-item__icon">
+              <img src="./img/home.svg" alt="">
+            </span>
+            <span class="menu-item__text">
+              Home
+            </span>
+          </a>
+        </li>
+        <li class="main-menu__item menu-item">
+          <a href="#" class="sidebar-h-padding">
+            <span class="menu-item__icon">
+              <img src="./img/search.svg" alt="">
+            </span>
+            <span class="menu-item__text">
+              Cerca
+            </span>
+          </a>
+        </li>
+        <li class="main-menu__item menu-item">
+          <a href="#" class="sidebar-h-padding">
+            <span class="menu-item__icon">
+              <img src="./img/libreria.svg" alt="">
+            </span>
+            <span class="menu-item__text">
+              La tua libreria
+            </span>
+          </a>
+        </li>
+        
+      </ul>
       <div class="sidebar__widget playlist">
-        playlist
+        <h4 class="widget__title sidebar-h-padding">Playlist</h4>
+
+        <a class="new-playlist-btn sidebar-h-padding" href="#">
+          <span class="plus-icon"></span>
+          <span>Crea Playlist</span>
+        </a>
+
+        <ul class="playlist-list">
+          <li class="playlist-item">
+            <a href="#" class="sidebar-h-padding">
+              Nome Palylist
+            </a>
+          </li>
+          <li class="playlist-item">
+            <a href="#" class="sidebar-h-padding">
+              Nome Palylist
+            </a>
+          </li>
+          <li class="playlist-item">
+            <a href="#" class="sidebar-h-padding">
+              Nome Palylist
+            </a>
+          </li>
+          <li class="playlist-item">
+            <a href="#" class="sidebar-h-padding">
+              Nome Palylist
+            </a>
+          </li>
+        </ul>
       </div>
       <div class="sidebar__widget app-install">
         install
