@@ -18,8 +18,8 @@
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	margin-left: calc(var(--gutter-x) / 2);
-	margin-right: calc(var(--gutter-x) / 2);
+	margin-left: calc(var(--gutter-x) / 2 * -1);
+	margin-right: calc(var(--gutter-x) / 2 * -1);
 }
 
 .col {
