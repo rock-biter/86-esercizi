@@ -134,6 +134,7 @@ a {
 .progress {
 	background-color: var(--gray);
 	flex-grow: 1;
+	position: relative;
 	/* width: 20px; */
 }
 
@@ -146,6 +147,23 @@ a {
 .progress,
 .progress-indicator {
 	border-radius: 999px;
+}
+
+.progress__handler {
+	width: 16px;
+	height: 16px;
+	background-color: var(--green);
+	border-radius: 50%;
+	position: absolute;
+	left: 23%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	display: none;
+}
+
+.player-progress:hover .progress__handler,
+.volume-control:hover .progress__handler {
+	display: block;
 }
 
 .volume-control {
