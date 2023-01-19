@@ -368,3 +368,158 @@ a {
 .new-playlist-btn .plus-icon::after {
 	transform: translate(-50%, -50%) rotate(90deg);
 }
+
+.upgrade-bar {
+	padding: 20px;
+	background-color: rgba(0, 0, 0, 0.6);
+	display: flex;
+	justify-content: flex-end;
+	position: sticky;
+	top: 0;
+	z-index: 999;
+}
+
+.call-to-action {
+	line-height: 38px;
+	padding: 0 20px;
+	text-transform: uppercase;
+	border: 1px solid currentColor;
+	border-radius: 999px;
+}
+
+.categories-menu {
+	padding: 30px 20px;
+}
+
+.categories-menu .categories {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	color: var(--gray);
+	font-size: 14px;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.categories-menu .categories__item a {
+	display: block;
+	line-height: 40px;
+	padding: 0 15px;
+}
+
+.categories-menu .categories__item {
+	position: relative;
+}
+
+.categories-menu .categories__item.active::after,
+.categories-menu .categories__item:hover::after {
+	content: '';
+	display: block;
+	height: 4px;
+	width: 40px;
+	background-color: var(--green);
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.container {
+	padding: 0 1.5rem;
+	max-width: 100%;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.col-12 {
+	flex-basis: 100%;
+}
+
+.col-2 {
+	flex-basis: calc(100% * 2 / 12);
+}
+
+[class^='col-'] {
+	padding: 0 8px;
+}
+
+.row {
+	margin: 0 -8px;
+}
+
+.gallery__card {
+	/* border: 3px solid white; */
+	min-height: 200px;
+}
+
+.container + .container {
+	margin-top: 2rem;
+}
+
+.gallery__card.card {
+	text-align: center;
+}
+
+.gallery__card.card .card__thumb {
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.gallery__card.card.card--rounded .card__thumb {
+	overflow: hidden;
+	border-radius: 999px;
+}
+
+.gallery__card.card .card__thumb img {
+	width: 100%;
+	display: block;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+	object-position: center;
+}
+
+.gallery__card.card .card__title {
+	font-size: 18px;
+	font-weight: 700;
+	margin-bottom: 8px;
+}
+
+.gallery__card.card .card__subtitle {
+	color: var(--gray);
+	font-size: 14px;
+}
+
+.gallery__card.card .card__cta-icon {
+	position: absolute;
+	font-size: 48px;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.3);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out;
+}
+
+.gallery__card.card:hover .card__cta-icon {
+	opacity: 1;
+}
+
+@media (max-width: 991px) {
+	.col-2 {
+		flex-basis: calc(100% * 3 / 12);
+	}
+}
+
+@media (max-width: 768px) {
+	.col-2 {
+		flex-basis: calc(100% * 6 / 12);
+	}
+}
