@@ -1,0 +1,40 @@
+img {
+	max-width: 100%;
+}
+
+.bool__card {
+	border-radius: 30px;
+	background-color: #b5ddff;
+	padding: 25px;
+	/* height: 100%; */
+}
+
+.row {
+	row-gap: 1.5rem;
+}
+
+// X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+	.testo-grande {
+		font-size: 20vh;
+	}
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+}
