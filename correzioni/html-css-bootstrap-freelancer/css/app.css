@@ -1,0 +1,44 @@
+/* nostri stili css */
+:root {
+	--green: #1abc9c;
+	--blue: #3a546d;
+	--dark-blue: #2c3e50;
+}
+
+.main-header {
+	background-color: var(--dark-blue);
+}
+
+a {
+	color: currentColor;
+	text-decoration: none;
+}
+
+.hero,
+.about {
+	background-color: var(--green);
+}
+
+/* DEBUG */
+
+main [class*='col']:not(.row)::before,
+footer [class*='col']:not(.row)::before {
+	content: 'content';
+	display: block;
+	border: 2px solid currentColor;
+	border-radius: 5px;
+	padding: 30px;
+}
+
+/* main [class*='col'] {
+	border: 1px solid currentColor;
+	min-height: 100px;
+} */
+
+.page-footer {
+	background-color: var(--blue);
+}
+
+.footer-copy {
+	background-color: var(--dark-blue);
+}
