@@ -1,0 +1,37 @@
+.sidebar {
+	width: 70px;
+	flex-shrink: 0;
+	background-color: #051e34;
+	color: white;
+}
+
+.header,
+.dashbord-body {
+	background-color: #efefef;
+}
+
+.logo-mobile {
+	height: 50px;
+}
+
+.logo {
+	height: 28px;
+}
+
+@media all AND (min-width: 768px) {
+	.sidebar {
+		width: 150px;
+	}
+}
+
+.nav {
+	--bs-nav-link-color: currentColor;
+}
+
+.sidebar .nav {
+	--bs-nav-link-hover-color: #ddd;
+}
+
+.dashbord-content .card {
+	margin-bottom: 1.5rem;
+}
