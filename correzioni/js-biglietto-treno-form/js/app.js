@@ -13,6 +13,8 @@ console.dir(inputDistanzaEl)
 const selectEl = document.getElementById('sconto')
 console.log(selectEl.value)
 
+const risultatoElement = document.getElementById('risultato')
+
 buttonEl.addEventListener('click', function () {
 	console.log('click su pulsante')
 
@@ -41,6 +43,8 @@ buttonEl.addEventListener('click', function () {
 	const prezzoFinale = prezzoBase - sconto
 
 	console.log(prezzoBase, sconto, prezzoFinale)
+
+	risultatoElement.innerHTML = prezzoFinale.toFixed(2) + ' euro'
 })
 
 // questo viene eseguito 1 volta prima della funzione del event listener
