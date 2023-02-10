@@ -24,3 +24,22 @@
 	align-items: center;
 	font-size: 24px;
 }
+
+#play-btn {
+	border: 0;
+	background-color: #dddddd;
+	color: black;
+	border-radius: 10px;
+	padding: 10px 30px;
+	display: block;
+}
+
+#play-btn:hover {
+	background-color: #aaaaaa;
+}
+
+.flex {
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}

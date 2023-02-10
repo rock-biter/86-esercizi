@@ -1,46 +1,92 @@
 console.log('griglia')
 
-let latoGriglia = 8
-let numeroCelle = latoGriglia * latoGriglia
-
-console.log(latoGriglia, numeroCelle)
-
+const platBtnElement = document.getElementById('play-btn')
 const grigliaElement = document.querySelector('.griglia')
-console.log(grigliaElement)
 
-for (let i = 0; i < numeroCelle; i++) {
-	let num = i + 1
-	console.log(num)
-	let divString = `<div class="cella" style="width: calc(100% / ${latoGriglia});" >${num}</div>` // <div> + num + </div>
-	// console.log(divString)
-	// let cellaElement = document.createElement('div')
+// console.log(platBtnElement)
+platBtnElement.addEventListener('click', startGame) //sen le tonde altrimenti viene invocata subito
 
-	// divString.addEventListener('click', function () {
-	// 	console.log('ciao')
-	// })
+// no numeri doppi
+// nuimeri compresi tra 1 3 numeroDiCelle
+const bombe = [5, 54, 9, 21, 36, 74]
+// startGame()
+// bombe.includes('5')
 
-	grigliaElement.innerHTML += divString
-	// grigliaElement.append(cellaElement)
+const secondaFunzione = startGame
+const altraVariabile = startGame()
 
-	// const el = document.querySelector('.cella:last-child')
-	// console.dir(el)
+// console.log(secondaFunzione)
+// console.log(altraVariabile)
 
-	// el.addEventListener('click', function () {
-	// 	console.log('ciao')
-	// })
+function resetGame() {
+	// azzerare il punteggio
+
+	// svuotare la griglia
+	grigliaElement.innerHTML = ''
+
+	// eliminare eventuali messaggi di game over...
 }
 
-const celleElements = document.querySelectorAll('.cella')
-// console.log(celleElements)
+function generaGriglia(latoGriglia) {
+	let numeroCelle = latoGriglia * latoGriglia
 
-for (let i = 0; i < celleElements.length; i++) {
-	const cella = celleElements[i]
+	for (let i = 0; i < numeroCelle; i++) {
+		let num = i + 1
+		// console.log(num)
+		let divString = `<div class="cella" style="width: calc(100% / ${latoGriglia});" >${num}</div>` // <div> + num + </div>
 
-	cella.addEventListener('click', function () {
-		console.log(i + 1)
-	})
+		grigliaElement.innerHTML += divString
+	}
 }
 
-function onClick() {
-	console.log(i + 1)
+function startGame() {
+	console.log('start game')
+
+	// eseguire tutte le operazioni di reset
+	resetGame()
+	let lato = 8
+	generaGriglia(lato)
+
+	const celleElements = document.querySelectorAll('.cella')
+	// console.log(celleElements)
+
+	for (let i = 0; i < celleElements.length; i++) {
+		const cella = celleElements[i]
+
+		// cella.addEventListener('click', function () {
+		// 	console.log(i + 1)
+		// 	// const cella = ''
+		// 	console.log(cella)
+		// })
+
+		cella.addEventListener('click', onClick)
+	}
+
+	return 'Fine star game'
 }
+
+function onClick(event) {
+	console.log(event)
+	console.log(event.target)
+	console.log(this)
+	console.log(event.target === this)
+	// const cella = event.target
+	const cella = this
+	console.log(cella.innerHTML)
+
+	const quadrato = parseInt(cella.innerHTML) ** 2
+	console.log(quadrato)
+
+	cella.classList.add('bg-green')
+	cella.removeEventListener('click', onClick)
+	// console.log(i + 1)
+}
+
+// grigliaElement.addEventListener('click', function (event) {
+// 	console.log('target:', event.target)
+// 	console.log('this:', this)
+
+// 	let griglia = this
+// 	let cella = event.target
+// 	cella.classList.add('bg-green')
+// })
