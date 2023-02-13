@@ -1,0 +1,45 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 50px;
+}
+
+.griglia {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.griglia > * {
+	/* width: calc(100% / 10); */
+	aspect-ratio: 1;
+	border: 2px solid crimson;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 24px;
+}
+
+#play-btn {
+	border: 0;
+	background-color: #dddddd;
+	color: black;
+	border-radius: 10px;
+	padding: 10px 30px;
+	display: block;
+}
+
+#play-btn:hover {
+	background-color: #aaaaaa;
+}
+
+.flex {
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}
