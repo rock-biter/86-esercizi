@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<link rel="stylesheet" href="./css/app.css" />
+
+		<style>
+			.is-admin {
+				color: tomato;
+			}
+
+			.is-guest {
+				color: cornflowerblue;
+			}
+
+			.title {
+				font-size: 20px;
+				font-weight: bold;
+			}
+
+			.d-none {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!-- <div v-if="userIsAdmin()">
+				<h1 class="is-admin">{{ message }}</h1>
+				<button @click="isAdmin = false">Logout</button>
+			</div>
+			<div v-else>
+				<h1 :class="['is-guest','title','main-title','color-blue']">
+					Devi loggarti.
+				</h1>
+				<button @click="isAdmin = true">Login</button>
+			</div>
+
+			<div>
+				<h1 class="title" :class="isAdmin === true ? 'is-admin' : 'is-guest'">
+					{{ isAdmin === true ? message : 'Devi loggarti' }}
+				</h1>
+				 <h1
+					:class="['title',className, (isAdmin === true ? 'is-admin' : 'is-guest')]"
+				>
+					{{ isAdmin === true ? message : 'Devi loggarti' }}
+				</h1>
+				<h1
+					:class="{
+          'title': true,
+          'is-admin': isAdmin === true,
+          'is-guest': isAdmin === false
+        }"
+				>
+					{{ isAdmin === true ? message : 'Devi loggarti' }}
+				</h1>
+			</div> -->
+
+			<div>
+				<!-- <ul>
+					<li v-for="(userName, i) in users">{{ i }}: {{ userName }}</li>
+				</ul>
+				<div>
+					<div v-for="(value,key) in car" :class="key === 'cc' ? 'd-none': ''">
+						{{ key }}: {{ value }}
+					</div>
+				</div> -->
+				<div class="container">
+					<select
+						name="difficolta"
+						@change="impostaDifficolta"
+						v-model="difficolta"
+						id=""
+					>
+						<option value="0">facile</option>
+						<option value="1">media</option>
+						<option value="2">difficile</option>
+					</select>
+
+					<p>difficolta: {{ difficolta }}</p>
+				</div>
+
+				<div>Punti totalizzati: {{ point }}</div>
+				<div class="container">
+					<div class="griglia">
+						<div
+							v-for="number in latoGriglia*latoGriglia"
+							:style="`width: calc(100% / ${latoGriglia})`"
+							class="cella"
+							:class="caselleCliccate.includes(number) ? 'bg-green' : '' "
+							@click="onClick(number)"
+						>
+							{{ number }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="./js/app.js"></script>
+	</body>
+</html>
