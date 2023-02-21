@@ -24,14 +24,19 @@
 				<div class="container">
 					<!-- struttura html del carosello -->
 					<div class="carosello">
+						<!-- v-for cicly l'array slides -->
+						<!-- element continete l'elemento corrente di ogni iterazione -->
+						<!-- index corripsonde all'indice dell'element per cui è vera la seguente espressione => slides[index] === element -->
 						<div
 							v-for="(element,index) in slides"
 							class="slide"
-							:class="index === currentIndex ? 'active' : ''"
+							:class="index === currentIndex ? 'active' : '' /* aggiungiamo la classe active solo alla slide il cui indice coincide con il currentIndex*/"
 						>
 							<img :src="element.image" alt="" />
 							<div class="slide__overlay">
 								<h3>{{ index }} - {{ element.title }}</h3>
+								<!-- element.text contiente una stringa da stampare dentro al paragrafo  -->
+								<!-- se in questa stringa ci sono dei tag html per stamparli come tali dobbiamo usare la direttiva v-html -->
 								<p v-html="element.text"></p>
 							</div>
 						</div>
