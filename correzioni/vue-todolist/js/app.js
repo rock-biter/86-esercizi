@@ -44,11 +44,11 @@ createApp({
 			this.inputValue = ''
 		},
 		removeTask(startIndex) {
-			// console.log(
-			// 	'elimino il task con indice:',
-			// 	startIndex,
-			// 	this.tasks[startIndex]
-			// )
+			console.log(
+				'elimino il task con indice:',
+				startIndex,
+				this.tasks[startIndex]
+			)
 			this.tasks.splice(startIndex, 1)
 		},
 		toggleTaskState(task) {
