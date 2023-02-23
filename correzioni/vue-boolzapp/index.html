@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Boolzapp</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<script
+			src="https://kit.fontawesome.com/c5d4023dee.js"
+			crossorigin="anonymous"
+		></script>
+		<link rel="stylesheet" href="./css/app.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="app__body">
+				<div class="sidebar">
+					<div class="toolbar">
+						<div class="card contact">
+							<figure class="contact__thumb">
+								<img src="./img/avatar_1.jpg" alt="" />
+							</figure>
+							<div class="card__body">
+								<h3 class="contact__name">Gianluca</h3>
+							</div>
+						</div>
+
+						<ul class="menu icons">
+							<li>
+								<i class="fa-solid fa-circle-notch"></i>
+							</li>
+							<li>
+								<i class="fa-solid fa-message"></i>
+							</li>
+							<li>
+								<i class="fa-solid fa-ellipsis-vertical"></i>
+							</li>
+						</ul>
+					</div>
+					<div class="alert-notifiche">
+						<div class="card alert">
+							<div class="alert__icon">
+								<i class="fa-solid fa-bell-slash"></i>
+							</div>
+							<div class="card__body">
+								<h3 class="alert__title">Ricevi notifiche di nuovi messaggi</h3>
+								<p class="alert__info">Lorem ipsum dolor sit amet et?</p>
+							</div>
+						</div>
+					</div>
+					<div class="search-bar">
+						<div class="input-group">
+							<div class="input-group__button">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</div>
+							<input type="text" placeholder="Cerca o inizia una nuova chat" />
+						</div>
+					</div>
+					<ul class="contacts">
+						<li v-for="contact in contacts" class="contacts__item">
+							<div class="card contact">
+								<figure class="contact__thumb">
+									<img :src="contact.avatar" alt="" />
+								</figure>
+								<div class="card__body">
+									<h3 class="contact__name">{{ contact.name }}</h3>
+									<p class="contact__info">
+										Lorem ipsum dolor sit amet consectetur.
+									</p>
+								</div>
+							</div>
+							<!-- span con ora ultimo messaggio -->
+							<span class="time"> 12:00 </span>
+						</li>
+					</ul>
+				</div>
+				<div class="main">
+					<div class="toolbar">
+						<div class="card contact">
+							<figure class="contact__thumb">
+								<img src="./img/avatar_7.jpg" alt="" />
+							</figure>
+							<div class="card__body">
+								<h3 class="contact__name">Marco</h3>
+								<p class="contact__info">
+									Lorem ipsum dolor sit amet consectetur.
+								</p>
+							</div>
+						</div>
+
+						<ul class="menu icons">
+							<li>
+								<i class="fa-solid fa-circle-notch"></i>
+							</li>
+							<li>
+								<i class="fa-solid fa-message"></i>
+							</li>
+							<li>
+								<i class="fa-solid fa-ellipsis-vertical"></i>
+							</li>
+						</ul>
+					</div>
+					<ul class="chat">
+						<li class="message sent">
+							Scendi il cane che lo piscio.
+							<span class="time"> 15:30 </span>
+						</li>
+
+						<li class="message received">
+							Arriva subito, è in ascensore.
+							<span class="time"> 15:41 </span>
+						</li>
+
+						<li class="message sent">
+							Perfetto grazie!
+							<span class="time"> 15:41 </span>
+						</li>
+
+						<li class="message received">
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+							Asperiores mollitia at rem harum quod. Nesciunt, est fuga. Dolorum
+							repellendus cupiditate nulla accusamus! Beatae, explicabo deleniti
+							eaque nobis ex natus, ab a quam, quo sint totam nostrum facilis
+							quidem obcaecati cumque! Perspiciatis quod totam quae quam vel
+							ullam quasi delectus perferendis.
+							<span class="time"> 15:41 </span>
+						</li>
+					</ul>
+					<div class="toolbar">
+						<div class="button icon">
+							<i class="fa-regular fa-face-smile"></i>
+						</div>
+						<input
+							class="user-input"
+							type="text"
+							placeholder="Scrivi messaggio"
+						/>
+						<div class="button icon">
+							<i class="fa-solid fa-microphone"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="./js/app.js"></script>
+	</body>
+</html>
