@@ -103,7 +103,7 @@ const contacts = [
 	},
 	{
 		name: 'Claudia',
-		avatar: './img/avatar_5.jpg',
+		avatar: './img/avatar_6.jpg',
 		visible: true,
 		messages: [
 			{
@@ -168,6 +168,61 @@ createApp({
 	data() {
 		return {
 			contacts: contacts,
+			activeContactIndex: 3,
 		}
 	},
+	watch: {
+		activeContactIndex(newIndex, oldIndex) {
+			console.log('newIndex:', newIndex)
+			console.log('oldIndex:', oldIndex)
+		},
+	},
+	computed: {
+		activeContact() {
+			return this.contacts[this.activeContactIndex]
+		},
+		numberOfContacts() {
+			return this.contacts.length
+		},
+		activeChat() {
+			return this.activeContact.messages
+		},
+	},
+	methods: {
+		setActiveContactIndex(index) {
+			// controllare se index non è NaN e se è un indice valido
+			this.activeContactIndex = index
+		},
+		getContactsLength() {
+			return this.numberOfContacts
+		},
+		getActiveContact() {
+			return this.contacts[this.activeContactIndex]
+		},
+	},
 }).mount('#app')
+
+// const { DateTime } = luxon
+const DateTime = luxon.DateTime
+
+const now = DateTime.now()
+console.log(now)
+
+const date = DateTime.fromObject({
+	year: 1990,
+	month: 10,
+	day: 24,
+	hour: 14,
+	minutes: 31,
+	seconds: 56,
+})
+console.log(date)
+
+// '24/10/1990'
+const formattedDate = date.toFormat('dd/LL/yyyy')
+console.log(formattedDate)
+
+const dateToParse = '10/01/2020 15:30:55' // dd/LL/yyyy HH:mm:ss
+
+const parsedDate = DateTime.fromFormat(dateToParse, 'dd/LL/yyyy HH:mm:ss')
+console.log(parsedDate.toFormat('dd/LL/yyyy'))

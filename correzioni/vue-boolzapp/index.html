@@ -11,6 +11,10 @@
 			href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
 			rel="stylesheet"
 		/>
+		<!-- <script src="./js/luxon.min.js"></script> -->
+		<script src="
+https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js
+"></script>
 		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 		<script
 			src="https://kit.fontawesome.com/c5d4023dee.js"
@@ -63,8 +67,14 @@
 							<input type="text" placeholder="Cerca o inizia una nuova chat" />
 						</div>
 					</div>
+					<div class="toolbar">Numero contatti: {{ numberOfContacts }}</div>
 					<ul class="contacts">
-						<li v-for="contact in contacts" class="contacts__item">
+						<li
+							v-for="(contact,index) in contacts"
+							:class="index === activeContactIndex ? 'active' : ''"
+							class="contacts__item"
+							@click="setActiveContactIndex(index)"
+						>
 							<div class="card contact">
 								<figure class="contact__thumb">
 									<img :src="contact.avatar" alt="" />
@@ -85,10 +95,10 @@
 					<div class="toolbar">
 						<div class="card contact">
 							<figure class="contact__thumb">
-								<img src="./img/avatar_7.jpg" alt="" />
+								<img :src="activeContact.avatar" alt="" />
 							</figure>
 							<div class="card__body">
-								<h3 class="contact__name">Marco</h3>
+								<h3 class="contact__name">{{ getActiveContact().name }}</h3>
 								<p class="contact__info">
 									Lorem ipsum dolor sit amet consectetur.
 								</p>
@@ -108,12 +118,16 @@
 						</ul>
 					</div>
 					<ul class="chat">
-						<li class="message sent">
-							Scendi il cane che lo piscio.
+						<li
+							v-for="element in activeChat"
+							:class="element.status === 'sent' ? 'sent' : 'received' "
+							class="message"
+						>
+							{{ element.message }}
 							<span class="time"> 15:30 </span>
 						</li>
 
-						<li class="message received">
+						<!-- <li class="message received">
 							Arriva subito, è in ascensore.
 							<span class="time"> 15:41 </span>
 						</li>
@@ -131,7 +145,7 @@
 							quidem obcaecati cumque! Perspiciatis quod totam quae quam vel
 							ullam quasi delectus perferendis.
 							<span class="time"> 15:41 </span>
-						</li>
+						</li> -->
 					</ul>
 					<div class="toolbar">
 						<div class="button icon">
