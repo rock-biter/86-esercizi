@@ -253,3 +253,7 @@ html {
 	line-height: 36px;
 	padding: 0 12px 0 87px;
 }
+
+.hidden {
+	display: none;
+}

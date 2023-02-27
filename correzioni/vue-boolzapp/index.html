@@ -37,13 +37,15 @@ https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js
 						</div>
 
 						<ul class="menu icons">
-							<li>
-								<i class="fa-solid fa-circle-notch"></i>
-							</li>
-							<li>
-								<i class="fa-solid fa-message"></i>
-							</li>
-							<li>
+							<template v-if="activeContactIndex === 0">
+								<li>
+									<i class="fa-solid fa-circle-notch"></i>
+								</li>
+								<li>
+									<i class="fa-solid fa-message"></i>
+								</li>
+							</template>
+							<li v-else>
 								<i class="fa-solid fa-ellipsis-vertical"></i>
 							</li>
 						</ul>
@@ -64,31 +66,40 @@ https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js
 							<div class="input-group__button">
 								<i class="fa-solid fa-magnifying-glass"></i>
 							</div>
-							<input type="text" placeholder="Cerca o inizia una nuova chat" />
+							<input
+								type="text"
+								v-model="search"
+								placeholder="Cerca o inizia una nuova chat"
+							/>
 						</div>
 					</div>
-					<div class="toolbar">Numero contatti: {{ numberOfContacts }}</div>
+					<!-- <div class="toolbar">ricerca: {{ search }}</div> -->
 					<ul class="contacts">
-						<li
-							v-for="(contact,index) in contacts"
-							:class="index === activeContactIndex ? 'active' : ''"
-							class="contacts__item"
-							@click="setActiveContactIndex(index)"
-						>
-							<div class="card contact">
-								<figure class="contact__thumb">
-									<img :src="contact.avatar" alt="" />
-								</figure>
-								<div class="card__body">
-									<h3 class="contact__name">{{ contact.name }}</h3>
-									<p class="contact__info">
-										Lorem ipsum dolor sit amet consectetur.
-									</p>
+						<template v-for="(contact,index) in contacts">
+							<!-- 'hidden': isHidden(contact) -->
+							<li
+								v-if="!isHidden(contact)"
+								:class="{
+									'active': index === activeContactIndex,
+								}"
+								class="contacts__item"
+								@click="setActiveContactIndex(index)"
+							>
+								<div class="card contact">
+									<figure class="contact__thumb">
+										<img :src="contact.avatar" alt="" />
+									</figure>
+									<div class="card__body">
+										<h3 class="contact__name">{{ contact.name }}</h3>
+										<p class="contact__info">
+											Lorem ipsum dolor sit amet consectetur.
+										</p>
+									</div>
 								</div>
-							</div>
-							<!-- span con ora ultimo messaggio -->
-							<span class="time"> 12:00 </span>
-						</li>
+								<!-- span con ora ultimo messaggio -->
+								<span class="time"> 12:00 </span>
+							</li>
+						</template>
 					</ul>
 				</div>
 				<div class="main">
@@ -98,7 +109,7 @@ https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js
 								<img :src="activeContact.avatar" alt="" />
 							</figure>
 							<div class="card__body">
-								<h3 class="contact__name">{{ getActiveContact().name }}</h3>
+								<h3 class="contact__name">{{ activeContact.name }}</h3>
 								<p class="contact__info">
 									Lorem ipsum dolor sit amet consectetur.
 								</p>
@@ -119,33 +130,13 @@ https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js
 					</div>
 					<ul class="chat">
 						<li
-							v-for="element in activeChat"
+							v-for="element in activeContact.messages"
 							:class="element.status === 'sent' ? 'sent' : 'received' "
 							class="message"
 						>
 							{{ element.message }}
 							<span class="time"> 15:30 </span>
 						</li>
-
-						<!-- <li class="message received">
-							Arriva subito, è in ascensore.
-							<span class="time"> 15:41 </span>
-						</li>
-
-						<li class="message sent">
-							Perfetto grazie!
-							<span class="time"> 15:41 </span>
-						</li>
-
-						<li class="message received">
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-							Asperiores mollitia at rem harum quod. Nesciunt, est fuga. Dolorum
-							repellendus cupiditate nulla accusamus! Beatae, explicabo deleniti
-							eaque nobis ex natus, ab a quam, quo sint totam nostrum facilis
-							quidem obcaecati cumque! Perspiciatis quod totam quae quam vel
-							ullam quasi delectus perferendis.
-							<span class="time"> 15:41 </span>
-						</li> -->
 					</ul>
 					<div class="toolbar">
 						<div class="button icon">
@@ -155,6 +146,8 @@ https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js
 							class="user-input"
 							type="text"
 							placeholder="Scrivi messaggio"
+							v-model="message"
+							@keyup.enter="sendMessage"
 						/>
 						<div class="button icon">
 							<i class="fa-solid fa-microphone"></i>

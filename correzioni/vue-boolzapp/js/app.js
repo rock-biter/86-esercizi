@@ -164,11 +164,15 @@ const contacts = [
 	},
 ]
 
+const { DateTime } = luxon
+
 createApp({
 	data() {
 		return {
 			contacts: contacts,
 			activeContactIndex: 3,
+			message: '',
+			search: '',
 		}
 	},
 	watch: {
@@ -181,11 +185,16 @@ createApp({
 		activeContact() {
 			return this.contacts[this.activeContactIndex]
 		},
-		numberOfContacts() {
-			return this.contacts.length
-		},
+		// numberOfContacts() {
+		// 	return this.contacts.length
+		// },
 		activeChat() {
 			return this.activeContact.messages
+		},
+	},
+	watch: {
+		activeContactIndex() {
+			this.resetMessage()
 		},
 	},
 	methods: {
@@ -199,30 +208,86 @@ createApp({
 		getActiveContact() {
 			return this.contacts[this.activeContactIndex]
 		},
+		resetMessage() {
+			this.message = ''
+		},
+		getDateAsString(format = 'dd/LL/yyyy') {
+			const now = DateTime.now()
+			// if (!format) {
+			// 	format = 'dd/LL/yyyy'
+			// }
+			return now.toFormat(format)
+		},
+		isHidden(contact) {
+			const name = contact.name.toLowerCase()
+			const search = this.search.trim().toLowerCase()
+
+			const result = !name.includes(search)
+			// console.log(name, search, result)
+
+			return result
+			// return true || false
+		},
+		sendMessage() {
+			const text = this.message.trim()
+			console.log(text)
+
+			if (text === '') return
+
+			const date = this.getDateAsString('dd/LL/yyyy HH:mm:ss')
+			// console.log(date)
+
+			const messageObj = {
+				date: date,
+				message: text,
+				status: 'sent',
+			}
+
+			console.log(messageObj)
+
+			this.activeContact.messages.push(messageObj)
+			this.resetMessage()
+
+			const self = this
+			const activeContact = this.contacts[this.activeContactIndex]
+
+			setTimeout(() => {
+				// creare il messaggio di risposta
+				console.log(this, self)
+				const risposta = {
+					date: self.getDateAsString('dd/LL/yyyy HH:mm:ss'),
+					message: 'ok',
+					status: 'received',
+				}
+				console.log('risposta automatica', risposta)
+				// pushare la risposta nella chat
+				activeContact.messages.push(risposta)
+			}, 2000)
+		},
 	},
 }).mount('#app')
 
 // const { DateTime } = luxon
-const DateTime = luxon.DateTime
+// const DateTime = luxon.DateTime
 
-const now = DateTime.now()
-console.log(now)
+// const now = DateTime.now()
+// console.log(now)
 
-const date = DateTime.fromObject({
-	year: 1990,
-	month: 10,
-	day: 24,
-	hour: 14,
-	minutes: 31,
-	seconds: 56,
-})
-console.log(date)
+// const date = DateTime.fromObject({
+// 	year: 1990,
+// 	month: 10,
+// 	day: 24,
+// 	hour: 14,
+// 	minutes: 31,
+// 	seconds: 56,
+// })
+// console.log(date)
 
-// '24/10/1990'
-const formattedDate = date.toFormat('dd/LL/yyyy')
-console.log(formattedDate)
+// // '24/10/1990'
+// const formattedDate = date.toFormat('dd/LL/yyyy')
+// console.log(formattedDate)
 
-const dateToParse = '10/01/2020 15:30:55' // dd/LL/yyyy HH:mm:ss
+// const dateToParse = '10/01/2020 15:30:55' // dd/LL/yyyy HH:mm:ss
 
-const parsedDate = DateTime.fromFormat(dateToParse, 'dd/LL/yyyy HH:mm:ss')
-console.log(parsedDate.toFormat('dd/LL/yyyy'))
+// const parsedDate = DateTime.fromFormat(dateToParse, 'dd/LL/yyyy HH:mm:ss')
+// console.log(parsedDate.toFormat('dd/LL/yyyy'))
