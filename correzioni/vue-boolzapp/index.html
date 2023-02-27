@@ -75,31 +75,33 @@ https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js
 					</div>
 					<!-- <div class="toolbar">ricerca: {{ search }}</div> -->
 					<ul class="contacts">
-						<template v-for="(contact,index) in contacts">
-							<!-- 'hidden': isHidden(contact) -->
-							<li
-								v-if="!isHidden(contact)"
-								:class="{
+						<!-- <template v-for="(contact,index) in contacts"> -->
+						<!-- 'hidden': isHidden(contact) -->
+						<li
+							v-for="(contact,index) in contacts"
+							:class="{
 									'active': index === activeContactIndex,
+									'hidden': isHidden(contact)
 								}"
-								class="contacts__item"
-								@click="setActiveContactIndex(index)"
-							>
-								<div class="card contact">
-									<figure class="contact__thumb">
-										<img :src="contact.avatar" alt="" />
-									</figure>
-									<div class="card__body">
-										<h3 class="contact__name">{{ contact.name }}</h3>
-										<p class="contact__info">
-											Lorem ipsum dolor sit amet consectetur.
-										</p>
-									</div>
+							class="contacts__item"
+							@click="setActiveContactIndex(index)"
+						>
+							<!-- v-show="!isHidden(contact)" -->
+							<div class="card contact">
+								<figure class="contact__thumb">
+									<img :src="contact.avatar" alt="" />
+								</figure>
+								<div class="card__body">
+									<h3 class="contact__name">{{ contact.name }}</h3>
+									<p class="contact__info">
+										Lorem ipsum dolor sit amet consectetur.
+									</p>
 								</div>
-								<!-- span con ora ultimo messaggio -->
-								<span class="time"> 12:00 </span>
-							</li>
-						</template>
+							</div>
+							<!-- span con ora ultimo messaggio -->
+							<span class="time"> 12:00 </span>
+						</li>
+						<!-- </template> -->
 					</ul>
 				</div>
 				<div class="main">
