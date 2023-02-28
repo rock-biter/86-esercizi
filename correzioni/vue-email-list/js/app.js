@@ -24,7 +24,7 @@ createApp({
 			}
 		},
 	},
-	mounted() {
+	created() {
 		this.fetchEmailList(100)
 	},
 }).mount('#app')
