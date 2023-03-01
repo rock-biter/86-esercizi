@@ -20,11 +20,13 @@ createApp({
 		},
 		fetchEmailList(num) {
 			for (let i = 0; i < num; i++) {
-				this.fetchEmail()
+				setTimeout(() => {
+					this.fetchEmail()
+				}, i * 200)
 			}
 		},
 	},
 	created() {
-		this.fetchEmailList(100)
+		this.fetchEmailList(10)
 	},
 }).mount('#app')
