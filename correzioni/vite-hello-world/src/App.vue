@@ -18,6 +18,10 @@ export default {
 <template>
 
   <AppTitle />
+  <div>
+    <img src="/vite.svg" width="100" alt="">
+    <img src="./assets/vue.svg" width="100" alt="">
+  </div>
   <p>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ducimus fuga beatae asperiores non unde dicta quae amet laboriosam! Esse.
   </p>
