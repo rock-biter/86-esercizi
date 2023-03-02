@@ -6,10 +6,10 @@
         <Logo />
       </div>
       <div class="col">
-        <FooterMenu :title="menu1.title" :links="menu1.links" />
+        <FooterMenu title="Pastificio" :links="menu1.links" />
       </div>
       <div class="col">
-        <FooterMenu :title="menu2.title" :links="menu2.links" />
+        <FooterMenu title="Prodotti" :links="menu2.links" />
       </div>
     </div>
 
