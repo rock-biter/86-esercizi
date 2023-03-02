@@ -1,7 +1,7 @@
 <template>
   <header class="main-header">
     <div class="container">
-      <img src="/images/la-molisana-logo.png" alt="">
+      <Logo />
 
       <nav class="main-menu">
         <ul>
@@ -16,9 +16,14 @@
 </template>
 
 <script>
-  export default {
-    
+import Logo from './Logo.vue'
+
+export default {
+  components: {
+    Logo
   }
+  
+}
 </script>
 
 <style lang="scss" scoped>
