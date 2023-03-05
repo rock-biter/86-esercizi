@@ -7,14 +7,19 @@
       <ul class="pagination">
         <li class="pag-link" :class="n === store.currentPage ? 'active' : ''" v-for="n in store.pages" :key="n">{{ n }}</li>
       </ul>
+      <!-- <Pagination /> -->
     </div>
   </footer>
 </template>
 
 <script>
   import store from '../store'
+  // import Pagination from './Pagination.vue';
 
   export default {
+    // components: {
+    //   Pagination,
+    // },
     data() {
       return {
         store
@@ -35,7 +40,7 @@ footer {
   .pagination-info {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     padding: 20px 0;
     gap: 1rem;
 
@@ -52,7 +57,7 @@ footer {
     flex-wrap: wrap;
     gap: 20px;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
 
     .pag-link {
       aspect-ratio: 1/1;
@@ -66,7 +71,8 @@ footer {
       background: white;
 
       &.active {
-        background-color: aquamarine;
+        background-color: $text-color;
+        color: white;
       }
     }
 
