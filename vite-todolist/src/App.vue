@@ -27,7 +27,7 @@
 					<div class="card">
 						<ul class="list-group list-group-flush">
 
-              <Task @click="toggleTaskState(el)" v-for="el in tasks" :key="el.text" :task="el" text="ciao" />
+              <Task @onDelete="removeTask2" @click="toggleTaskState(el)" v-for="(el,i) in tasks" :key="el.text" :task="el" text="ciao" />
 
 						</ul>
 					</div>
@@ -84,12 +84,21 @@
         this.inputValue = ''
       },
       removeTask(startIndex) {
+        console.log('evento onDelete')
         console.log(
           'elimino il task con indice:',
           startIndex,
           this.tasks[startIndex]
         )
         this.tasks.splice(startIndex, 1)
+      },
+      removeTask2(task) {
+        // console.log('remove task 2: ',task, num, nome)
+        const index = this.tasks.indexOf(task)
+        console.log('index of',index)
+        if(index >= 0) {
+          this.tasks.splice(index, 1)
+        }
       },
       toggleTaskState(task) {
         // const task = this.tasks[index]

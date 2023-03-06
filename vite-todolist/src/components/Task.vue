@@ -6,7 +6,10 @@
       {{ task.text }}- {{  text }}
     </span>
 
-    <span @click="onClick" class="">
+    <!-- <span @click.stop="$emit('onDelete')" class="">
+      +
+    </span> -->
+    <span @click.stop="onClick" class="">
       +
     </span>
   </li>
@@ -24,7 +27,8 @@
     },
     methods: {
       onClick() {
-        console.log(this.task)
+        // console.log(this.task)
+        this.$emit('onDelete',this.task,3,'pippo') // emettiamo evento custom 'onDelete' e agganciamo un parametro
       }
     }
   }

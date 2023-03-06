@@ -5,6 +5,8 @@ const store = reactive({
 	count: 0,
 	pages: 0,
 	currentPage: 1,
+	search: '',
+	selectedStatus: '',
 })
 
 export default store
