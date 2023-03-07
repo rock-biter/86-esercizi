@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <div>
-      <input @keyup.enter="$emit('onSearch')" class="search" type="text" v-model="store.search" placeholder="Filtra per nome">
+      <input @keyup.enter="onChange" class="search" type="text" v-model="store.search" placeholder="Filtra per nome">
     </div>
     <div>
-      <select @change="$emit('onStatusChange')" v-model="store.selectedStatus" id="">
+      <select @change="onChange" v-model="store.selectedStatus" id="">
         <option value="">-- filtra per stato --</option>
         <option v-for="status in statusOptions" :value="status" :key="status">{{ status.toUpperCase() }}</option>
       </select>
@@ -33,6 +33,10 @@
       //   console.log('ho premuto il tasto enter!')
       //   this.$emit('onSearch')
       // }
+      onChange() {
+        this.store.currentPage = 1
+        this.$emit('onFiltersChange')
+      }
     }
   }
 </script>

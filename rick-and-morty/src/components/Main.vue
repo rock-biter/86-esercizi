@@ -1,7 +1,7 @@
 <template>
   <main class="main">
     <div class="container">
-      <Filters @onSearch="fetchCharacters" @onStatusChange="fetchCharacters" />
+      <Filters @onFiltersChange="fetchCharacters" />
     </div>
     <div class="container">
       <div>
@@ -12,13 +12,13 @@
       </div>
     </div> 
     <div class="container">
-      <ul v-if="store.characters.length > 0" class="characters">
+      <ul v-if="characters.length > 0" class="characters">
 
         <!-- <li class="character card" v-for="character in characters" :key="character.id">
           <img :src="character.image" alt="">
           <h3 class="characater__name">{{ character.name }}</h3>
         </li> -->
-        <Character v-for="element in store.characters" :key="element.id" :character="element" />
+        <Character v-for="element in characters" :key="element.id" :character="element" />
 
       </ul>
       <div v-else>
@@ -52,6 +52,18 @@
     computed: {
       characters() {
         return this.store.characters
+      },
+      currentPage() {
+        return this.store.currentPage
+      }
+    },
+    watch: {
+      currentPage(newVal, oldVal)  {
+        console.log('currentPage changed!',newVal)
+        this.fetchCharacters()
+      },
+      characters() {
+        console.log('characters changed')
       }
     },
     methods: {
@@ -60,6 +72,7 @@
         // fare la chiamata in get all'endpoint: 
         const search = this.store.search
         const status = this.store.selectedStatus
+        const page = this.store.currentPage
         console.log('store.search = ',search)
         console.log('store.status = ',status)
 
@@ -69,6 +82,7 @@
             params: {
               name: search,
               status: status,
+              page,
               // gender: 'male'
             }
           })
