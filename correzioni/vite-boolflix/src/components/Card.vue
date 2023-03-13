@@ -59,8 +59,9 @@
 
 <style lang="scss" scoped>
 .poster {
-  aspect-ratio: 1/1.5;
+  aspect-ratio: 1/1.608;
   object-fit: cover;
   object-position: center;
+  width: 100%;
 }
 </style>
