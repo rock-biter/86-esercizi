@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('houses', function (Blueprint $table) {
             $table->id();
-            $table->string('reference', 12);
+            $table->string('reference', 12); // AF-451236565
             $table->string('address', 200);
             $table->string('postal_code', 5);
             $table->string('city', 70);
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->tinyInteger('rooms')->unsigned();
             $table->tinyInteger('bathrooms')->unsigned();
             $table->string('type', 50);
-            $table->text('description')->nullable();
+            $table->text('description');
             $table->float('price', 10, 2);
             $table->tinyInteger('is_available')->unsigned()->default(1);
 
