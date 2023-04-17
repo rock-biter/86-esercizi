@@ -183,3 +183,9 @@ Route::get('/pastas', [PastaController::class, 'index'])->name('pastas.index');
 Route::get('/pastas/create', [PastaController::class, 'create'])->name('pastas.create');
 
 Route::get('/pastas/{pasta}', [PastaController::class, 'show'])->name('pastas.show');
+
+Route::post('/pastas', [PastaController::class, 'store'])->name('pastas.store');
+
+Route::get('/pastas/{pasta}/edit', [PastaController::class, 'edit'])->name('pastas.edit');
+
+Route::put('/pastas/{pasta}', [PastaController::class, 'update'])->name('pastas.update');
