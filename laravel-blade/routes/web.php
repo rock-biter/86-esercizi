@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\MovieController;
 use App\Http\Controllers\PastaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -178,14 +180,23 @@ Route::get('/contact-us', function () {
 //     return 'Pasta: ' . $pasta['titolo'];
 // })->name('dettaglio.pasta');
 
-Route::get('/pastas', [PastaController::class, 'index'])->name('pastas.index');
+// Route::get('/pastas', [PastaController::class, 'index'])->name('pastas.index');
 
-Route::get('/pastas/create', [PastaController::class, 'create'])->name('pastas.create');
+// Route::get('/pastas/create', [PastaController::class, 'create'])->name('pastas.create');
 
-Route::get('/pastas/{pasta}', [PastaController::class, 'show'])->name('pastas.show');
+// Route::get('/pastas/{pasta}', [PastaController::class, 'show'])->name('pastas.show');
 
-Route::post('/pastas', [PastaController::class, 'store'])->name('pastas.store');
+// Route::post('/pastas', [PastaController::class, 'store'])->name('pastas.store');
 
-Route::get('/pastas/{pasta}/edit', [PastaController::class, 'edit'])->name('pastas.edit');
+// Route::get('/pastas/{pasta}/edit', [PastaController::class, 'edit'])->name('pastas.edit');
 
-Route::put('/pastas/{pasta}', [PastaController::class, 'update'])->name('pastas.update');
+// Route::put('/pastas/{pasta}', [PastaController::class, 'update'])->name('pastas.update');
+
+// Route::delete('/pastas/{pasta}', [PastaController::class, 'destroy'])->name('pastas.destroy');
+Route::resource('pastas', PastaController::class);
+
+Route::delete('/pastas', [PastaController::class, 'destroyAll'])->name('pastas.destroy.all');
+
+Route::resource('users', UserController::class);
+
+Route::resource('movies', MovieController::class);

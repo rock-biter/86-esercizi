@@ -9,6 +9,11 @@
         <a class="btn btn-primary" href="{{ route('pastas.create') }}">
           Nuova pasta
         </a>
+        <form action="{{ route('pastas.destroy.all') }}" method="POST">
+          @csrf
+          @method('DELETE')
+          <input class="btn btn-danger btn-sm" type="submit" value="Elimina tutte">
+        </form>
       </div>
     </div>
   </div>
@@ -16,9 +21,10 @@
     <table class="table">
       <thead>
         <tr>
+          <th scope="col">Thumb</th>
           <th scope="col">id</th>
           <th scope="col">Titolo</th>
-          <th scope="col">Thumb</th>
+          
           <th scope="col"></th>
         </tr>
       </thead>
@@ -39,7 +45,16 @@
             </td>
             
             <td>
-              <a class="btn btn-secondary btn-sm" href="{{ route('pastas.edit',$pasta) }}">Edit</a>
+              <div class="d-flex">
+                <a class="btn btn-secondary btn-sm" href="{{ route('pastas.edit',$pasta) }}">Edit</a>
+                <form action="{{ route('pastas.destroy',$pasta) }}" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+                </form>
+              </div>
+              
+
             </td>
           </tr>
               

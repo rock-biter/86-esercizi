@@ -76,4 +76,25 @@ class PastaController extends Controller
 
         return to_route('pastas.show', $pasta);
     }
+
+    public function destroy(Pasta $pasta)
+    {
+
+        // dd($pasta);
+        $pasta->delete();
+
+        return to_route('pastas.index');
+    }
+
+    public function destroyAll()
+    {
+        $pastas = Pasta::all();
+        $ids = $pastas->pluck('id');
+
+        // dd($ids);
+        // Pasta::truncate();
+        Pasta::destroy($ids);
+
+        return to_route('pastas.index');
+    }
 }
