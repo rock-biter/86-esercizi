@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('src');
             $table->string('title');
             $table->string('type');
-            $table->string('cooking_time');
-            $table->string('weight');
-            $table->text('description');
+            $table->string('cooking_time', 20);
+            $table->string('weight', 20);
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

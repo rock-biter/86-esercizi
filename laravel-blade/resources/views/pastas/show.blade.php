@@ -4,6 +4,7 @@
 
 <div class="container">
   <h1>{{ $pasta->title }}</h1>
+  <a class="btn btn-secondary" href="{{ route('pastas.edit',$pasta) }}">Modifica</a>
 </div>
 
 <div class="container">
