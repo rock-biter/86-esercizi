@@ -8,8 +8,14 @@
                 <p>/{{ $post->slug }}</p>
             </div>
 
-            <div>
+            <div class="d-flex">
                 <a class="btn btn-sm btn-secondary" href="{{ route('posts.edit',$post) }}">Modifica</a>
+                @if($post->trashed())
+                    <form action="{{ route('posts.restore',$post) }}" method="POST">
+                      @csrf
+                      <input class="btn btn-sm btn-success" type="submit" value="Ripristina">
+                    </form>
+                @endif
             </div>
             
         </div>

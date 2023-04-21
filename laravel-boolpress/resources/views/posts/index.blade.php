@@ -20,6 +20,7 @@
             <th>Slug</th>
             <th>Data creazione</th>
             <th>Data modifica</th>
+            <th>Eliminato</th>
             <th></th>
           </tr>
         </thead>
@@ -34,8 +35,22 @@
                 <td>{{ $post->created_at }}</td>
                 <td>{{ $post->updated_at }}</td>
                 <td>
+                  {{ $post->trashed() ? $post->deleted_at : '' }}
+                </td>
+                <td>
                   <div class="d-flex ">
                     <a class="btn btn-sm btn-secondary" href="{{ route('posts.edit',$post) }}">Edit</a>
+                    <form action="{{ route('posts.destroy',$post) }}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <input class="btn btn-sm btn-danger" type="submit" value="Elimina">
+                    </form>
+                    @if($post->trashed())
+                    <form action="{{ route('posts.restore',$post) }}" method="POST">
+                      @csrf
+                      <input class="btn btn-sm btn-success" type="submit" value="Ripristina">
+                    </form>
+                    @endif
                   </div>
                 </td>
               </tr>
