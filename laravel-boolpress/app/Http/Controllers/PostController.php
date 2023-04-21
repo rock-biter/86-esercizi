@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -14,11 +15,20 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::withTrashed()->get();
 
-        return view('posts.index', compact('posts'));
+        $trashed = $request->input('trashed');
+
+        if ($trashed) {
+            $posts = Post::onlyTrashed()->get();
+        } else {
+            $posts = Post::all();
+        }
+
+        $num_of_trashed = Post::onlyTrashed()->count();
+
+        return view('posts.index', compact('posts', 'num_of_trashed'));
     }
 
     /**
@@ -90,11 +100,13 @@ class PostController extends Controller
         return to_route('posts.show', $post);
     }
 
-    public function restore(Post $post)
+    public function restore(Request $request, Post $post)
     {
 
         if ($post->trashed()) {
             $post->restore();
+
+            $request->session()->flash('message', 'Il post è stato ripristinato.');
         }
 
         return back();
@@ -115,6 +127,6 @@ class PostController extends Controller
         }
 
 
-        return to_route('posts.index');
+        return back();
     }
 }

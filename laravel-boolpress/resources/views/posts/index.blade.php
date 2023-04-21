@@ -1,11 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
+    @if(request()->session()->exists('message'))
+
+        <div class="alert alert-primary" role="alert">
+          {{ request()->session()->pull('message') }}
+        </div>
+
+        @endif
     <div class="container py-5">
       <div class="d-flex align-items-center">
         <h1 class="me-auto">Tutti i post</h1>
 
+
+        
+
         <div>
+          @if(request('trashed'))
+            <a class="btn btn-sm btn-light" href="{{ route('posts.index') }}">Tutti i post</a>
+          @else
+            <a class="btn btn-sm btn-light" href="{{ route('posts.index',['trashed' => true]) }}">Cestino ({{ $num_of_trashed}})</a>
+          @endif
           <a class="btn btn-sm btn-primary" href="{{ route('posts.create') }}">Nuovo post</a>
         </div>
       </div>
@@ -32,10 +47,10 @@
                   <a href="{{ route('posts.show',$post) }}">{{ $post->title }}</a>
                 </td>
                 <td>{{ $post->slug }}</td>
-                <td>{{ $post->created_at }}</td>
-                <td>{{ $post->updated_at }}</td>
+                <td>{{ $post->created_at->format('d/m/Y') }}</td>
+                <td>{{ $post->updated_at->format('d/m/Y') }}</td>
                 <td>
-                  {{ $post->trashed() ? $post->deleted_at : '' }}
+                  {{ $post->trashed() ? $post->deleted_at->format('d/m/Y') : '' }}
                 </td>
                 <td>
                   <div class="d-flex ">
