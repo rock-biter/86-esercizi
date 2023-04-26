@@ -32,7 +32,7 @@
           <tr>
             <th>ID</th>
             <th>Title</th>
-            <th>Slug</th>
+            <th>Categoria</th>
             <th>Data creazione</th>
             <th>Data modifica</th>
             <th>Eliminato</th>
@@ -46,7 +46,7 @@
                 <td>
                   <a href="{{ route('posts.show',$post) }}">{{ $post->title }}</a>
                 </td>
-                <td>{{ $post->slug }}</td>
+                <td> {{ $post->category ? $post->category->name : '-' }} </td>
                 <td>{{ $post->created_at->format('d/m/Y') }}</td>
                 <td>{{ $post->updated_at->format('d/m/Y') }}</td>
                 <td>

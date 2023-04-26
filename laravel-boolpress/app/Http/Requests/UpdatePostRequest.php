@@ -30,7 +30,8 @@ class UpdatePostRequest extends FormRequest
                 'max:150',
                 Rule::unique('posts', 'title')->ignore($this->post)
             ],
-            'content' => 'nullable|string'
+            'content' => 'nullable|string',
+            'category_id' => 'nullable|exists:categories,id'
         ];
     }
 }
