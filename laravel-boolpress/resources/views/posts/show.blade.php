@@ -12,6 +12,13 @@
                     @endif
                 </h1>
                 <p>/{{ $post->slug }}</p>
+                <ul class="ps-0 d-flex gap-1">
+                    @forelse($post->tags as $tag )
+                        <span class="badge rounded-pill text-bg-light">{{ $tag->name }}</span>
+                    @empty
+                        -
+                    @endforelse
+                </ul>
             </div>
 
             <div class="d-flex">
@@ -36,7 +43,7 @@
         <h2>Articoli correlati</h2>
         @if($post->category)
         <ul>
-            @foreach($post->category->posts as $related_post)
+            @foreach($post->getRelatedPosts() as $related_post)
                 <li>
                     <a href="{{ route('posts.show',$related_post)}}">
                         {{ $related_post->title }}

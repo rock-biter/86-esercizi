@@ -21,4 +21,19 @@ class Post extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
+    public function getTagIds()
+    {
+        return $this->tags->pluck('id')->all();
+    }
+
+    public function getRelatedPosts()
+    {
+        return $this->category->posts()->where('id', '!=', $this->id)->get();
+    }
 }
