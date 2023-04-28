@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -21,10 +22,12 @@ class PostController extends Controller
     {
 
         $trashed = $request->input('trashed');
+        $user_id = Auth::id(); //recupero id utente loggato
 
         if ($trashed) {
-            $posts = Post::onlyTrashed()->get();
+            $posts = Post::onlyTrashed()->where('user_id', $user_id)->get();
         } else {
+            // $posts = Post::where('user_id', $user_id)->get();
             $posts = Post::all();
         }
 
@@ -59,6 +62,7 @@ class PostController extends Controller
         // dd($data);
 
         $data['slug'] = Str::slug($data['title']);
+        $data['user_id'] = Auth::id();
 
         $post = Post::create($data);
 
@@ -77,6 +81,12 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+
+        // if ($post->user_id != Auth::id()) {
+        //     abort(403, 'Unauthorized action.');
+        // }
+        $this->authorize('view', $post);
+
         return view('posts.show', compact('post'));
     }
 
@@ -88,6 +98,11 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        // if ($post->user_id != Auth::id()) {
+        //     abort(403, 'Unauthorized action.');
+        // }
+        $this->authorize('view', $post);
+
         $categories = Category::orderBy('name', 'asc')->get();
         $tags = Tag::orderBy('name', 'asc')->get();
 
@@ -103,6 +118,9 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
+
+        $this->authorize('update', $post);
+
         $data = $request->validated();
         // dd($data);
 
@@ -125,6 +143,10 @@ class PostController extends Controller
     public function restore(Request $request, Post $post)
     {
 
+        if ($post->user_id != Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         if ($post->trashed()) {
             $post->restore();
 
@@ -142,6 +164,11 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+
+        if ($post->user_id != Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         if ($post->trashed()) {
 
             // $post->tags()->detach();

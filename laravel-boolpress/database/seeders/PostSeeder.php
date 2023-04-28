@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
@@ -22,14 +23,16 @@ class PostSeeder extends Seeder
 
         $category_ids = Category::all()->pluck('id')->all(); // [1,2,3,4,5,6]
         $tag_ids = Tag::all()->pluck('id')->all();
+        $user_ids = User::all()->pluck('id')->all();
 
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 500; $i++) {
 
             $post = new Post();
             $post->title = $faker->unique()->sentence($faker->numberBetween(3, 5));
             $post->content = $faker->optional()->text(500);
             $post->slug = Str::slug($post->title, '-');
             $post->category_id = $faker->optional()->randomElement($category_ids);
+            $post->user_id = $faker->randomElement($user_ids);
             $post->save();
 
             // fare dopo il metodo save altrimenti il post non avra un id

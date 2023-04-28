@@ -12,9 +12,6 @@
       <div class="d-flex align-items-center">
         <h1 class="me-auto">Tutti i post</h1>
 
-
-        
-
         <div>
           @if(request('trashed'))
             <a class="btn btn-sm btn-light" href="{{ route('posts.index') }}">Tutti i post</a>
@@ -46,6 +43,11 @@
                 <td>{{ $post->id }}</td>
                 <td>
                   <a href="{{ route('posts.show',$post) }}">{{ $post->title }}</a>
+                  <p>
+                    <label for="">
+                      {{ optional($post->user)->name }}
+                    </label>
+                  </p>
                 </td>
                 <td> {{ $post->category ? $post->category->name : '-' }} </td>
                 <td>
