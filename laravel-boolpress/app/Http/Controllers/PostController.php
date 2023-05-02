@@ -25,10 +25,10 @@ class PostController extends Controller
         $user_id = Auth::id(); //recupero id utente loggato
 
         if ($trashed) {
-            $posts = Post::onlyTrashed()->where('user_id', $user_id)->get();
+            $posts = Post::onlyTrashed()->with('category', 'tags', 'user')->where('user_id', $user_id)->get();
         } else {
             // $posts = Post::where('user_id', $user_id)->get();
-            $posts = Post::all();
+            $posts = Post::with('category', 'tags', 'user')->get();
         }
 
         $num_of_trashed = Post::onlyTrashed()->count();
