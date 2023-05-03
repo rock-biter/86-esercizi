@@ -1,21 +1,18 @@
 <script>
-import Posts from './components/Posts.vue'
+// import Posts from './components/Posts.vue'
+import NavBar from './components/NavBar.vue';
 
 export default {
   components: {
-    Posts
+    NavBar,
+    // Posts
   }
 }
 
 </script>
 
 <template>
-  <div class="container">
-    <h1 class="title">
-      Posts
-    </h1>
-    <Posts />
-  </div>
+  <router-view></router-view>
 </template>
 
 <style >

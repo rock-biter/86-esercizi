@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="posts">
-      <PostCard v-for="post in posts" :key="post.id" :post="post" />
+      <PostCard v-for="post in posts" :key="post.id" :post="post" >
+        Ciao
+      </PostCard>
+      
     </div> 
     <!-- <ul class="pagination">
       <li :class="[ n === currentPage ? 'active' : '', 'page-link']" v-for="n in lastPage" @click="fetchPosts(n)" :key="n">{{ n }}</li>

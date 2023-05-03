@@ -1,15 +1,25 @@
 <template>
   <div class="post-card">
-    <h3>{{ post.title }}</h3>
-    <p>{{ post.category ? post.category.name : '-' }}</p>
-    <ul class="tag-list" v-if="post.tags && post.tags.length > 0">
-      <li class="tag" v-for="tag in post.tags" :key="tag.id">{{ tag.name }}</li>
-    </ul>
+    <router-link :to="`/blog/${post.slug}`">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.category ? post.category.name : '-' }}</p>
+      <ul class="tag-list" v-if="post.tags && post.tags.length > 0">
+        <li class="tag" v-for="tag in post.tags" :key="tag.id">{{ tag.name }}</li>
+      </ul>
+      <Button>
+        <span>{{ post.title }}</span>
+        <span>15.35  &euro;</span>
+      </Button>
+    </router-link>
   </div>
 </template>
 
 <script>
+import Button from './Button.vue';
   export default {
+    components: {
+      Button
+    },
     props: {
       post: {
         type: Object,
