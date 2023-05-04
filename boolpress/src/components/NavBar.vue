@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="py-3 bg-slate-100">
     <div class="container nav">
       
       <router-link :to="{ name: 'home'}">Boolpress</router-link>

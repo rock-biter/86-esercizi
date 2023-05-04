@@ -3,7 +3,7 @@
   <main>
     <slot />
   </main>
-  <footer>
+  <footer class="py-4 bg-slate-900 text-white">
     <div class="container">
       footer default layout
     </div>

@@ -10,6 +10,8 @@ class Post extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $with = ['category', 'tags', 'user'];
+
     protected $fillable = [
         'title',
         'content',

@@ -4,6 +4,7 @@ import Home from './pages/Home.vue'
 import AboutUs from './pages/AboutUs.vue'
 import Contacts from './pages/Contacts.vue'
 import PostsIndex from './pages/Posts.index.vue'
+import PostsShow from './pages/Posts.show.vue'
 import NotFound from './pages/404.vue'
 
 const history = createWebHistory()
@@ -31,6 +32,12 @@ const router = createRouter({
 			path: '/blog',
 			name: 'posts.index',
 			component: PostsIndex,
+		},
+		{
+			path: '/blog/:slug',
+			name: 'posts.show',
+			component: PostsShow,
+			props: true,
 		},
 		{
 			path: '/404',
