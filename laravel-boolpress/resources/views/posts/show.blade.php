@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+    @if ($post->cover_image)
+        <div class="container py-5">
+            <img src="{{ asset('storage/'.$post->cover_image ) }}" alt="">
+        </div>
+    @endif
+
+    
     <div class="container py-5">
         <div class="d-flex align-items-center">
             <div class="me-auto">

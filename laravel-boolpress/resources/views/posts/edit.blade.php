@@ -5,9 +5,24 @@
         <h1>Modifica: {{ $post->title }}</h1>
     </div>
     <div class="container">
-        <form action="{{ route('posts.update',$post) }}" method="POST">
+        <form action="{{ route('posts.update',$post) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
+
+            @if($post->cover_image)
+                <img src="{{ asset('storage/'.$post->cover_image ) }}" alt="" width="150">
+              @endif
+            <div class="mb-3">
+              
+              <label for="image" class="form-label">Immagine di copertina</label>
+              <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" value="{{ old('image') }}" id="image" aria-describedby="titleHelp">
+              {{-- errore title --}}
+              @error('image')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+              @enderror
+            </div>
 
             <div class="mb-3">
               <label for="title" class="form-label">Titolo</label>

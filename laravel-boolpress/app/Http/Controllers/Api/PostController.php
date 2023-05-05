@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -23,14 +24,20 @@ class PostController extends Controller
     public function show($slug)
     {
 
-        $post = Post::where('slug', $slug)->first();
+        $post = Post::with([
+            'category.posts' => function (Builder $query) use ($slug) {
+                $query->where('slug', '!=', $slug)->orderBy('created_at', 'desc')->limit(3);
+            }
+        ])->where('slug', $slug)->first();
 
-        $relatedPost = Post::where('slug', '!=', $slug)->orderBy('created_at', 'desc')->limit(3)->get();
 
-        $post->relatedPosts = $relatedPost;
+
+        // $relatedPost = Post::where('slug', '!=', $slug)->orderBy('created_at', 'desc')->limit(3)->get();
+
+        // $post->relatedPosts = $relatedPost;
         // il codice qui sotto genera un 500 Internal Server Error, dove sta l'errore?
         // $post->load([
-        //     'category.posts' => function (Builder $query) {
+        //     'category.posts' => function (Builder $query) use ($slug) {
         //         $query->where('slug', '!=', $slug)->orderBy('created_at', 'desc')->limit(3);
         //     }
         // ]);

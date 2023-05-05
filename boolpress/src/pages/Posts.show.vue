@@ -2,6 +2,8 @@
   <DefaultLayout>
     <template v-if="loading === false">
       <div class="container py-4">
+        <img v-if="post.cover_image" :src="post.cover_path" alt="">
+
         <h1 class="text-3xl font-bold">
           {{ post.title }}
         </h1>
@@ -52,12 +54,13 @@ import PostCard from '../components/PostCard.vue';
     props: ['slug'],
     computed: {
       relatedPosts() {
-        if(this.post.relatedPosts) {
-          return this.post.relatedPosts
+        if(this.post.category) {
+          return this.post.category.posts
         }
 
         return []
-      }
+      },
+    
     },
     methods: {
       fetchPost(slug) {
