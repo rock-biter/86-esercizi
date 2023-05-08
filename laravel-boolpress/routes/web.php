@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Mail\NewLead;
+use App\Models\Lead;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,4 +41,11 @@ require __DIR__ . '/auth.php';
 
 Route::get('/test', function () {
     return view('welcome');
+});
+
+Route::get('/new-lead-mail', function () {
+
+    $lead = Lead::first();
+
+    return new NewLead($lead);
 });
